@@ -15,7 +15,7 @@ export type Project = {
   title: string;
   category: string;
   description: string;
-  image?: string;
+  image?: string | undefined;
   gallery?: string[];
   tools: string[];
 };
