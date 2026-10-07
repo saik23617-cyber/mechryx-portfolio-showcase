@@ -94,7 +94,7 @@ export const projects: Project[] = [
     slug: "assembly-component",
     title: "Sheet Metal Bracket",
     category: "SHEET METAL MODELING",
-    description: "Project description to be provided.",
+    description: "SolidWorks sheet metal bracket with formed flanges, mounting holes, and a central opening, built using sheet metal features and mirrored geometry.",
     image: bracket.url,
     imageAlt: "Uploaded SolidWorks screenshot showing a magenta component with a flat base, a large circular opening and two raised folded sections with circular holes.",
     preserveImage: true,
