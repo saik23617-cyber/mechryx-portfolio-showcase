@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -23,6 +23,38 @@ export function ProjectGrid({ limit }: { limit?: number }) {
   );
 }
 
+function MotionStudyVideo({ p }: { p: Project }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    let played = false;
+    const tryPlay = () => {
+      if (played) return;
+      played = true;
+      v.muted = true;
+      v.play().catch(() => {
+        // Autoplay blocked: thumbnail + native play control stay visible.
+      });
+    };
+    // Start after 3s, but only once the video can actually play.
+    const t = setTimeout(() => {
+      if (v.readyState >= 3) tryPlay();
+      else v.addEventListener("canplay", tryPlay, { once: true });
+    }, 3000);
+    return () => {
+      clearTimeout(t);
+      v.removeEventListener("canplay", tryPlay);
+    };
+  }, []);
+  return (
+    <video ref={ref} key={p.video} controls playsInline muted preload="auto" poster={p.poster} aria-label={`${p.title} motion study`} className="h-full w-full object-contain">
+      <source src={p.video} type="video/mp4" />
+      Your browser does not support this video. <a href={p.video}>Open the motion study video</a>.
+    </video>
+  );
+}
+
 function ProjectModal({ p, onClose }: { p: Project; onClose: () => void }) {
   const imgs = p.gallery ?? (p.image ? [p.image] : []);
   const [idx, setIdx] = useState(0);
@@ -44,10 +76,7 @@ function ProjectModal({ p, onClose }: { p: Project; onClose: () => void }) {
         </Button>
         <div className="aspect-[16/10] bg-navy">
           {p.video ? (
-            <video key={p.video} controls playsInline preload="metadata" poster={p.poster} aria-label={`${p.title} motion study`} className="h-full w-full object-contain">
-              <source src={p.video} type="video/mp4" />
-              Your browser does not support this video. <a href={p.video}>Open the motion study video</a>.
-            </video>
+            <MotionStudyVideo p={p} />
           ) : imgs.length ? <img src={imgs[idx]} alt={p.imageAlt ?? `${p.title} uploaded CAD view ${idx + 1}`} className="h-full w-full object-contain" /> : <ProjectImage p={p} />}
         </div>
         {p.caption && <p className="border-b px-6 py-3 text-sm text-muted-foreground">{p.caption}</p>}
