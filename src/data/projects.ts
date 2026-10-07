@@ -12,7 +12,7 @@ import bracket from "@/assets/projects/bracket.png.asset.json";
 import valve from "@/assets/projects/valve-flow.jpeg.asset.json";
 import crane from "@/assets/projects/crane-hook.jpeg.asset.json";
 import engineVideo from "@/assets/projects/engine-motion.mp4.asset.json";
-import enginePoster from "@/assets/projects/engine-poster.jpg.asset.json";
+import enginePoster from "@/assets/projects/engine-assembly.png.asset.json";
 
 export type Project = {
   slug: string;
@@ -36,11 +36,11 @@ export const projects: Project[] = [
     title: "4-Cylinder Engine",
     category: "Mechanical CAD / Engine Design",
     description: "3D CAD modelling of a four-cylinder engine assembly with multiple mechanical components and assembly relationships.",
-    image: undefined,
-    uploadLabel: "Upload engine screenshot",
+    image: enginePoster.url,
+    imageAlt: "SolidWorks screenshot of a 4-cylinder engine assembly showing four pistons, connecting rods and a crankshaft.",
     video: engineVideo.url,
     poster: enginePoster.url,
-    caption: "4-cylinder engine motion study — uploaded video.",
+    caption: "4-Cylinder Engine motion study — uploaded video with your engine assembly screenshot as the thumbnail.",
     tools: ["SolidWorks"],
   },
   {
