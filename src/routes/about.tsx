@@ -7,6 +7,8 @@ import { Container, PageHeader, Reveal } from "@/components/site/ui";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "About MECHRYX — Mechanical CAD Studio" },
       { name: "description", content: "MECHRYX is a growing mechanical CAD and product design studio founded by Sai Kumar." },
       { property: "og:title", content: "About MECHRYX" },

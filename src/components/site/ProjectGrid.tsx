@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { projects, type Project } from "@/data/projects";
 import { ProjectCard, ProjectImage } from "./Cards";
 import { Reveal, btn } from "./ui";
@@ -12,7 +13,7 @@ export function ProjectGrid({ limit }: { limit?: number }) {
     <>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {list.map((p, i) => (
-          <Reveal key={p.slug} delay={(i % 3) * 90}>
+            <Reveal key={p.slug} delay={(i % 3) * 90} className="h-full min-w-0">
             <ProjectCard p={p} index={projects.indexOf(p)} onOpen={() => setActive(p)} />
           </Reveal>
         ))}
@@ -38,18 +39,24 @@ function ProjectModal({ p, onClose }: { p: Project; onClose: () => void }) {
   return (
     <div className="fixed inset-0 z-[60] flex items-end justify-center bg-background/80 p-0 backdrop-blur-md animate-in fade-in sm:items-center sm:p-6" onClick={onClose} role="dialog" aria-modal="true" aria-label={p.title}>
       <div className="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-t-xl border bg-card shadow-card animate-in slide-in-from-bottom-4 sm:rounded-xl" onClick={(e) => e.stopPropagation()}>
-        <button onClick={onClose} className="absolute top-3 right-3 z-10 grid h-10 w-10 place-items-center rounded-md border bg-background/80 backdrop-blur" aria-label="Close">
+        <Button variant="outline" size="icon" onClick={onClose} className="absolute top-3 right-3 z-10 h-10 w-10 bg-background/80 backdrop-blur" aria-label="Close">
           <X className="h-5 w-5" />
-        </button>
+        </Button>
         <div className="aspect-[16/10] bg-navy">
-          {imgs.length ? <img src={imgs[idx]} alt={`${p.title} CAD view ${idx + 1}`} className="h-full w-full object-contain" /> : <ProjectImage p={p} />}
+          {p.video ? (
+            <video key={p.video} controls playsInline preload="metadata" poster={p.poster} aria-label={`${p.title} motion study`} className="h-full w-full object-contain">
+              <source src={p.video} type="video/mp4" />
+              Your browser does not support this video. <a href={p.video}>Open the motion study video</a>.
+            </video>
+          ) : imgs.length ? <img src={imgs[idx]} alt={p.imageAlt ?? `${p.title} uploaded CAD view ${idx + 1}`} className="h-full w-full object-contain" /> : <ProjectImage p={p} />}
         </div>
+        {p.caption && <p className="border-b px-6 py-3 text-sm text-muted-foreground">{p.caption}</p>}
         {imgs.length > 1 && (
           <div className="flex gap-2 border-b p-3">
             {imgs.map((src, i) => (
-              <button key={src} onClick={() => setIdx(i)} className={`h-16 w-24 overflow-hidden rounded border ${i === idx ? "border-primary" : "opacity-60"}`} aria-label={`Show view ${i + 1}`}>
+              <Button variant="ghost" key={src} onClick={() => setIdx(i)} className={`h-16 w-24 overflow-hidden rounded border p-0 ${i === idx ? "border-primary" : "opacity-60"}`} aria-label={`Show view ${i + 1}`}>
                 <img src={src} alt="" className="h-full w-full object-cover" />
-              </button>
+              </Button>
             ))}
           </div>
         )}

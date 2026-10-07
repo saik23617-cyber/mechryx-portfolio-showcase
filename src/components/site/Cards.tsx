@@ -1,8 +1,8 @@
 import { useRef, type MouseEvent } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ImagePlus, Play } from "lucide-react";
 import type { Service } from "@/data/services";
 import type { Project } from "@/data/projects";
-import { LogoMark } from "./Logo";
+import { Button } from "@/components/ui/button";
 
 export function ServiceCard({ s }: { s: Service }) {
   const Icon = s.icon;
@@ -22,17 +22,13 @@ export function ServiceCard({ s }: { s: Service }) {
 }
 
 export function ProjectImage({ p, className = "" }: { p: Project; className?: string }) {
-  if (p.image) return <img src={p.image} alt={`${p.title} CAD model`} loading="lazy" className={`h-full w-full object-cover ${className}`} />;
+  if (p.image) return <img src={p.image} alt={p.imageAlt ?? `${p.title} uploaded CAD screenshot`} loading="lazy" className={`h-full w-full ${p.preserveImage ? "object-contain" : "object-cover object-[65%_center]"} ${className}`} />;
   return (
     <div className={`relative grid h-full w-full place-items-center bg-blueprint bg-navy ${className}`}>
-      <svg viewBox="0 0 200 120" className="w-3/5 text-primary/60" fill="none" stroke="currentColor" strokeWidth="0.8" aria-hidden="true">
-        <circle cx="100" cy="60" r="34" />
-        <circle cx="100" cy="60" r="14" />
-        <path d="M40 60h120M100 10v100" strokeDasharray="3 3" />
-        <path d="M66 104h68M66 100v8M134 100v8" />
-      </svg>
-      <div className="absolute bottom-3 left-3 flex items-center gap-2 font-mono text-[0.65rem] tracking-widest text-muted-foreground uppercase">
-        <LogoMark className="h-4 w-4" /> Render coming soon
+      <div className="flex flex-col items-center gap-3 px-6 text-center text-muted-foreground">
+        <ImagePlus className="h-8 w-8 text-primary-glow" aria-hidden="true" />
+        <span className="text-sm">{p.uploadLabel ?? "Upload project screenshot"}</span>
+        {p.video && <span className="flex items-center gap-2 text-xs text-silver"><Play className="h-3 w-3" /> Motion study video available</span>}
       </div>
     </div>
   );
@@ -52,17 +48,17 @@ export function ProjectCard({ p, index, onOpen }: { p: Project; index: number; o
 
   return (
     <article ref={ref} onMouseMove={move} onMouseLeave={leave} className="group flex h-full flex-col overflow-hidden rounded-lg border bg-card shadow-card transition-[transform,border-color] duration-200 hover:border-primary/40">
-      <button onClick={onOpen} className="relative aspect-[4/3] overflow-hidden text-left" aria-label={`View ${p.title}`}>
+      <Button variant="ghost" onClick={onOpen} className="relative aspect-[4/3] h-auto w-full shrink-0 overflow-hidden rounded-none p-0 text-left" aria-label={`View ${p.title}`}>
         <div className="h-full w-full transition-transform duration-700 group-hover:scale-105"><ProjectImage p={p} /></div>
         <span className="absolute top-3 left-3 rounded bg-background/80 px-2 py-1 font-mono text-[0.65rem] tracking-widest text-silver backdrop-blur">P-{String(index + 1).padStart(2, "0")}</span>
-      </button>
+      </Button>
       <div className="flex flex-1 flex-col p-6">
         <p className="eyebrow">{p.category}</p>
         <h3 className="mt-3 text-xl font-semibold">{p.title}</h3>
         <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{p.description}</p>
-        <button onClick={onOpen} className="mt-6 inline-flex items-center gap-1.5 self-start text-sm font-medium text-primary-glow">
+        <Button variant="link" onClick={onOpen} className="mt-6 h-auto gap-1.5 self-start p-0 text-sm font-medium text-primary-glow">
           View Project <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </button>
+        </Button>
       </div>
     </article>
   );
