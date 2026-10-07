@@ -1,4 +1,6 @@
 # Portfolio media update
-- [ ] Assign uploaded screenshots and engine video; flag missing or uncertain media.
-- [ ] Update shared cards and details, including an assembly component placeholder project.
-- [ ] Verify homepage, Projects page, and controlled video playback.
+- [x] Assign uploaded screenshots and engine video; flag missing media.
+- [x] Update shared cards and details, including an assembly component placeholder project.
+- [x] Verify homepage, Projects page, thumbnails, video delivery, and mobile layout.
+- [ ] Confirm engine playback in a browser with H.264 support; automated browser cannot decode the uploaded MP4.
+- [ ] Await engine screenshot and assembly component title/description from the user.
