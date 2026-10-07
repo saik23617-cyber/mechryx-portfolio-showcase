@@ -11,6 +11,8 @@ import { Container, Reveal, SectionHeading, btn } from "@/components/site/ui";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "MECHRYX | Mechanical CAD & Product Design" },
       { name: "description", content: "MECHRYX provides mechanical CAD modelling, product design, engineering drawings, assemblies, and 3D-printing design support." },
       { property: "og:title", content: "MECHRYX | Mechanical CAD & Product Design" },

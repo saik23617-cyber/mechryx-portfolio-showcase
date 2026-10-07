@@ -6,6 +6,8 @@ import { Container, PageHeader, Reveal } from "@/components/site/ui";
 export const Route = createFileRoute("/process")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "How We Work — Design Process | MECHRYX" },
       { name: "description", content: "Understand, plan, design, review, deliver — the MECHRYX five-step mechanical CAD process." },
       { property: "og:title", content: "How We Work | MECHRYX" },

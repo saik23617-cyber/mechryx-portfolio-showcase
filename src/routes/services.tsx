@@ -9,6 +9,8 @@ import { Container, PageHeader, Reveal } from "@/components/site/ui";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Services — 3D CAD, Product Design & Drawings | MECHRYX" },
       { name: "description", content: "3D CAD modelling, mechanical product design, engineering drawings, assembly design, 3D-printing models and CAD support." },
       { property: "og:title", content: "Services | MECHRYX" },

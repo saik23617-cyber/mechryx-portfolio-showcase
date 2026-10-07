@@ -7,6 +7,8 @@ import { Container, PageHeader, Reveal, btn } from "@/components/site/ui";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Contact — Start Your CAD Project | MECHRYX" },
       { name: "description", content: "Send your sketch, concept or CAD requirement to MECHRYX via WhatsApp, email or the consultation form." },
       { property: "og:title", content: "Let's Build Your Idea | MECHRYX" },
