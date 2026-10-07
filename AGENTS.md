@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+Portfolio media mappings live in the shared project data and are rendered by the same cards/detail view on both pages, so media stays consistent.
+Uploaded video frames may be extracted only for player posters; a missing requested screenshot remains a labeled card placeholder.
