@@ -55,7 +55,7 @@ export const projects: Project[] = [
   {
     slug: "water-control-valve",
     title: "Water Control Valve",
-    category: "Product Design",
+    category: "SIMULATION DESIGN",
     description: "Mechanical CAD design of a water control valve with component-level modelling and functional considerations.",
     image: valve.url,
     imageAlt: "SolidWorks flow simulation screenshot showing a transparent flanged elbow with coloured flow trajectories and a pressure legend.",
