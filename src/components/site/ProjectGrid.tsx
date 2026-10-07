@@ -23,6 +23,38 @@ export function ProjectGrid({ limit }: { limit?: number }) {
   );
 }
 
+function MotionStudyVideo({ p }: { p: Project }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    let played = false;
+    const tryPlay = () => {
+      if (played) return;
+      played = true;
+      v.muted = true;
+      v.play().catch(() => {
+        // Autoplay blocked: thumbnail + native play control stay visible.
+      });
+    };
+    // Start after 3s, but only once the video can actually play.
+    const t = setTimeout(() => {
+      if (v.readyState >= 3) tryPlay();
+      else v.addEventListener("canplay", tryPlay, { once: true });
+    }, 3000);
+    return () => {
+      clearTimeout(t);
+      v.removeEventListener("canplay", tryPlay);
+    };
+  }, []);
+  return (
+    <video ref={ref} key={p.video} controls playsInline muted preload="auto" poster={p.poster} aria-label={`${p.title} motion study`} className="h-full w-full object-contain">
+      <source src={p.video} type="video/mp4" />
+      Your browser does not support this video. <a href={p.video}>Open the motion study video</a>.
+    </video>
+  );
+}
+
 function ProjectModal({ p, onClose }: { p: Project; onClose: () => void }) {
   const imgs = p.gallery ?? (p.image ? [p.image] : []);
   const [idx, setIdx] = useState(0);
