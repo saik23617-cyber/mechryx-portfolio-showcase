@@ -92,8 +92,8 @@ export const projects: Project[] = [
   },
   {
     slug: "assembly-component",
-    title: "Project title to be provided",
-    category: "Assembly Component",
+    title: "Sheet Metal Bracket",
+    category: "SHEET METAL MODELING",
     description: "Project description to be provided.",
     image: bracket.url,
     imageAlt: "Uploaded SolidWorks screenshot showing a magenta component with a flat base, a large circular opening and two raised folded sections with circular holes.",
