@@ -6,6 +6,6 @@
 - [x] Receive engine screenshot and assembly component title/description from the user.
 
 # Logo and motion polish
-- [ ] Add original uploaded logo to header/footer and derive favicon.
-- [ ] Add restrained hero, blueprint, card and reveal motion with reduced-motion support.
-- [ ] Verify header, footer, hero and project cards on desktop and mobile.
+- [x] Add original uploaded logo to header/footer and derive favicon.
+- [x] Add restrained hero, blueprint, card and reveal motion with reduced-motion support.
+- [x] Verify header, footer, hero and project cards on desktop and mobile.

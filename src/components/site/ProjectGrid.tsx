@@ -27,10 +27,10 @@ function MotionStudyVideo({ p }: { p: Project }) {
   const ref = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     const v = ref.current;
-    if (!v) return;
+    if (!v || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let played = false;
     const tryPlay = () => {
-      if (played) return;
+      if (played || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       played = true;
       v.muted = true;
       v.play().catch(() => {

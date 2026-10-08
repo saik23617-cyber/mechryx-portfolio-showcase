@@ -152,7 +152,7 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .project-card, .hero-cad { transform: none !important; }
-  .group:hover img, .group:hover > button > div { transform: none !important; }
+  .group:hover, .group:hover *, a:hover, button:hover { transform: none !important; }
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }
