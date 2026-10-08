@@ -5,6 +5,7 @@ import { nav } from "@/data/site";
 import { Logo } from "./Logo";
 import { btn } from "./ui";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -18,7 +19,7 @@ export function Navbar() {
 
   return (
     <header className={cn("fixed inset-x-0 top-0 z-50 transition-all duration-300", scrolled || open ? "border-b bg-background/85 backdrop-blur-xl" : "bg-transparent")}>
-      <nav className="mx-auto grid h-18 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3 sm:px-8 lg:grid-cols-[auto_1fr_auto]" aria-label="Main">
+      <nav className="mx-auto grid h-22 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3 sm:px-8 lg:grid-cols-[auto_1fr_auto]" aria-label="Main">
         <Logo />
         <ul className="hidden items-center justify-center gap-1 lg:flex">
           {nav.map((n) => (
@@ -38,9 +39,9 @@ export function Navbar() {
           <Link to="/contact" className={cn(btn({ size: "sm" }), "hidden sm:inline-flex")}>
             Start a Project <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
-          <button className="grid h-10 w-10 place-items-center rounded-md border lg:hidden" onClick={() => setOpen((o) => !o)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
+          <Button variant="outline" size="icon" className="h-11 w-11 lg:hidden" onClick={() => setOpen((o) => !o)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          </Button>
         </div>
       </nav>
       {open && (

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
-import hero from "@/assets/hero-cad.jpg";
+import { projects } from "@/data/projects";
 import { services } from "@/data/services";
 import { process, software } from "@/data/site";
 import { ServiceCard, ProcessStep } from "@/components/site/Cards";
@@ -76,11 +76,11 @@ function Home() {
 }
 
 function Hero() {
+  const engine = projects.find((project) => project.slug === "four-cylinder-engine");
   return (
-    <section className="relative overflow-hidden bg-blueprint pt-28 lg:min-h-screen lg:pt-0">
+    <section className="hero-blueprint relative overflow-hidden bg-blueprint pt-28 lg:pt-0">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background" />
-      <div className="pointer-events-none absolute top-1/3 right-0 h-[40rem] w-[40rem] rounded-full bg-primary/15 blur-[120px]" />
-      <Container className="relative grid items-center gap-12 py-12 lg:min-h-screen lg:grid-cols-[1.05fr_1fr] lg:py-0">
+      <Container className="relative grid items-center gap-12 py-12 lg:min-h-[min(820px,90dvh)] lg:grid-cols-[1.05fr_1fr] lg:py-24">
         <div className="lg:pt-16">
           <Reveal>
             <p className="eyebrow flex items-center gap-3"><span className="h-px w-8 bg-primary" />MECHRYX · Mechanical CAD & Product Design</p>
@@ -107,16 +107,15 @@ function Hero() {
           </Reveal>
         </div>
 
-        <Reveal delay={200} className="relative">
-          <div className="corner-ticks relative overflow-hidden rounded-xl border bg-navy">
-            <img src={hero} alt="Exploded CAD assembly of a mechanical gearbox with dimension lines" width={1280} height={1280} className="aspect-square w-full object-cover" />
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-primary/10 to-transparent animate-scan" />
+        <Reveal delay={200} className="hero-perspective relative">
+          <div className="hero-cad relative">
+            <img src={engine?.image} alt={engine?.imageAlt ?? "Uploaded 4-cylinder engine CAD assembly screenshot"} width={1280} height={960} className="aspect-[4/3] w-full object-contain" />
             <div className="absolute inset-x-0 bottom-0 flex items-center justify-between border-t bg-background/70 px-4 py-3 font-mono text-[0.65rem] tracking-widest text-silver uppercase backdrop-blur">
-              <span>ASSY-001 · Exploded view</span>
+              <span>4-Cylinder Engine</span>
               <span className="text-primary-glow">From Concept to Reality</span>
             </div>
           </div>
-          <svg className="pointer-events-none absolute -top-10 -right-10 hidden h-40 w-40 text-primary/30 animate-spin-slow lg:block" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.6" aria-hidden="true">
+          <svg className="pointer-events-none absolute -top-10 -right-10 hidden h-40 w-40 text-primary/30 lg:block" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.6" aria-hidden="true">
             <circle cx="50" cy="50" r="30" /><circle cx="50" cy="50" r="10" />
             {Array.from({ length: 12 }).map((_, i) => <rect key={i} x="47" y="14" width="6" height="7" transform={`rotate(${i * 30} 50 50)`} />)}
           </svg>

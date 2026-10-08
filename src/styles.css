@@ -122,6 +122,26 @@
 @keyframes page-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes scan { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
 @keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes cad-drift {
+  0%, 100% { transform: rotateX(1deg) rotateY(-2deg) translateY(0); }
+  50% { transform: rotateX(-1deg) rotateY(2deg) translateY(-5px); }
+}
+@keyframes blueprint-drift {
+  0%, 100% { background-position: 0 0, 0 0, 0 0, 0 0; }
+  50% { background-position: 8px 4px, 8px 4px, 8px 4px, 8px 4px; }
+}
+
+.hero-perspective { perspective: 1200px; }
+.hero-cad { transform-origin: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-blueprint { animation: blueprint-drift 30s ease-in-out infinite; }
+}
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .hero-cad { animation: cad-drift 16s ease-in-out infinite; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .project-card:hover { box-shadow: var(--shadow-glow); }
+}
 
 @utility animate-page-in { animation: page-in 0.5s ease-out both; }
 @utility animate-scan { animation: scan 6s linear infinite; }
@@ -130,6 +150,9 @@
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.2,.7,.2,1); }
 .reveal.is-visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .project-card, .hero-cad { transform: none !important; }
+  .group:hover, .group:hover *, a:hover, button:hover { transform: none !important; }
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }

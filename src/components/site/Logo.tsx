@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import logo from "@/assets/branding/mechryx-logo.png.asset.json";
 
 export function LogoMark({ className = "h-8 w-8" }: { className?: string }) {
   return (
@@ -18,12 +19,9 @@ export function LogoMark({ className = "h-8 w-8" }: { className?: string }) {
 
 export function Logo({ sub = true }: { sub?: boolean }) {
   return (
-    <Link to="/" className="flex min-w-0 items-center gap-2.5" aria-label="MECHRYX home">
-      <LogoMark className="h-9 w-9 shrink-0" />
-      <span className="flex min-w-0 flex-col leading-none">
-        <span className="font-display text-lg font-bold tracking-[0.18em]">MECHRYX</span>
-        {sub && <span className="mt-1 hidden truncate font-mono text-[0.6rem] tracking-[0.2em] text-muted-foreground uppercase sm:block">Mechanical CAD & Product Design</span>}
-      </span>
+    <Link to="/" className="flex w-fit min-w-0 items-center gap-3 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" aria-label="MECHRYX home">
+      <img src={logo.url} alt="MECHRYX — metallic silver gear and lettering with an electric blue accent" width={1536} height={1024} className="h-14 w-auto shrink-0 object-contain sm:h-16" />
+      {sub && <span className="hidden max-w-36 font-mono text-[0.6rem] leading-relaxed text-muted-foreground uppercase xl:block">Mechanical CAD & Product Design</span>}
     </Link>
   );
 }
