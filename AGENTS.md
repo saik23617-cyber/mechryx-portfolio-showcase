@@ -11,3 +11,5 @@
 
 Portfolio media mappings live in the shared project data and are rendered by the same cards/detail view on both pages, so media stays consistent.
 Uploaded video frames may be extracted only for player posters; a missing requested screenshot remains a labeled card placeholder.
+Shared branding uses the original uploaded logo asset pointer; only the favicon is a resized, proportion-preserving public raster.
+Decorative depth and background motion use CSS and fine-pointer card transforms, with a global reduced-motion override; do not add a 3D library for these effects.

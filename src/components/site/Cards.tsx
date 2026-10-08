@@ -38,16 +38,16 @@ export function ProjectCard({ p, index, onOpen }: { p: Project; index: number; o
   const ref = useRef<HTMLElement>(null);
   const move = (e: MouseEvent) => {
     const el = ref.current;
-    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!el || !window.matchMedia("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)").matches) return;
     const r = el.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width - 0.5;
     const y = (e.clientY - r.top) / r.height - 0.5;
-    el.style.transform = `perspective(900px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
+    el.style.transform = `perspective(1000px) translateY(-4px) rotateY(${x * 3}deg) rotateX(${-y * 3}deg)`;
   };
   const leave = () => ref.current && (ref.current.style.transform = "");
 
   return (
-    <article ref={ref} onMouseMove={move} onMouseLeave={leave} className="group flex h-full flex-col overflow-hidden rounded-lg border bg-card shadow-card transition-[transform,border-color] duration-200 hover:border-primary/40">
+    <article ref={ref} onMouseMove={move} onMouseLeave={leave} className="project-card group flex h-full flex-col overflow-hidden rounded-lg border bg-card shadow-card transition-[transform,border-color,box-shadow] duration-300 hover:border-primary/40">
       <Button variant="ghost" onClick={onOpen} className="relative aspect-[4/3] h-auto w-full shrink-0 overflow-hidden rounded-none p-0 text-left" aria-label={`View ${p.title}`}>
         <div className="h-full w-full transition-transform duration-700 group-hover:scale-105"><ProjectImage p={p} /></div>
         <span className="absolute top-3 left-3 rounded bg-background/80 px-2 py-1 font-mono text-[0.65rem] tracking-widest text-silver backdrop-blur">P-{String(index + 1).padStart(2, "0")}</span>
