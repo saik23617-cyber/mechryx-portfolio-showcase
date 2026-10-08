@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
@@ -77,6 +78,15 @@ function Home() {
 
 function Hero() {
   const engine = projects.find((project) => project.slug === "four-cylinder-engine");
+  const [reduceMotion, setReduceMotion] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduceMotion(mq.matches);
+    const onChange = () => setReduceMotion(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
   return (
     <section className="hero-blueprint relative overflow-hidden bg-blueprint pt-28 lg:pt-0">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background" />
@@ -109,7 +119,21 @@ function Hero() {
 
         <Reveal delay={200} className="hero-perspective relative">
           <div className="hero-cad relative">
-            <img src={engine?.image} alt={engine?.imageAlt ?? "Uploaded 4-cylinder engine CAD assembly screenshot"} width={1280} height={960} className="aspect-[4/3] w-full object-contain" />
+            {reduceMotion || !engine?.video ? (
+              <img src={engine?.image} alt={engine?.imageAlt ?? "Uploaded 4-cylinder engine CAD assembly screenshot"} width={1280} height={960} className="aspect-[4/3] w-full object-contain" />
+            ) : (
+              <video
+                src={engine.video}
+                poster={engine.poster ?? engine.image}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label={engine.imageAlt ?? "4-Cylinder Engine motion study video"}
+                className="aspect-[4/3] w-full object-contain"
+              />
+            )}
             <div className="absolute inset-x-0 bottom-0 flex items-center justify-between border-t bg-background/70 px-4 py-3 font-mono text-[0.65rem] tracking-widest text-silver uppercase backdrop-blur">
               <span>4-Cylinder Engine</span>
               <span className="text-primary-glow">From Concept to Reality</span>
