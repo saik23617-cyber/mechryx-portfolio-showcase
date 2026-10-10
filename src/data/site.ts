@@ -6,7 +6,7 @@ export const site = {
   phoneDisplay: "+91 90595 82549",
   phoneHref: "tel:+919059582549",
   whatsapp: "https://wa.me/919059582549",
-  email: "saik23617@gmail.com",
+  email: "mechryxdesigns@gmail.com",
   // Add your real profile URLs here. Leave empty ("") to hide the link.
   social: {
     linkedin: "",
