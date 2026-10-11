@@ -9,3 +9,7 @@
 - [x] Add original uploaded logo to header/footer and derive favicon.
 - [x] Add restrained hero, blueprint, card and reveal motion with reduced-motion support.
 - [x] Verify header, footer, hero and project cards on desktop and mobile.
+
+# Enquiry form links
+- [x] Point hero "Start a Project" and a contact "Send a Project Enquiry" button at the Zapier enquiry form in a new tab.
+- [x] Verify both buttons open the form on desktop and mobile, and fix mobile sideways scroll on the contact page.
