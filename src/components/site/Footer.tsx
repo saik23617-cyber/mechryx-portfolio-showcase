@@ -14,7 +14,7 @@ const links = [
 export function Footer() {
   const socials = [
     { href: site.social.linkedin, label: "LinkedIn", Icon: Linkedin },
-    { href: site.social.instagram, label: "Instagram", Icon: Instagram },
+    { href: site.social.instagram, label: "MECHRYX on Instagram", Icon: Instagram },
     { href: site.whatsapp, label: "WhatsApp", Icon: MessageCircle },
   ].filter((s) => s.href);
 

@@ -11,7 +11,7 @@ export const site = {
   // Add your real profile URLs here. Leave empty ("") to hide the link.
   social: {
     linkedin: "",
-    instagram: "",
+    instagram: "https://www.instagram.com/mechryx?xtok=cHp4ZHh3MnF3eXcz",
   },
 };
 
