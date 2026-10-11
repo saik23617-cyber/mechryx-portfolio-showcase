@@ -51,7 +51,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate className="corner-ticks rounded-xl border bg-panel p-6 sm:p-8">
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-5 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         <div>
           <label htmlFor="name" className="mb-2 block text-sm text-silver">Name</label>
           <input id="name" name="name" className={field} placeholder="Your name" autoComplete="name" />
