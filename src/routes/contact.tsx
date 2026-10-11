@@ -23,7 +23,7 @@ function ContactPage() {
     <>
       <PageHeader eyebrow="Contact" title="Let's Build Your Idea" text="Have a sketch, concept, product idea, or CAD requirement? Send us the details and let's discuss how we can turn it into a professional mechanical design." />
       <section className="py-20">
-        <Container className="grid gap-10 lg:grid-cols-[1fr_1.5fr]">
+        <Container className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)]">
           <div className="space-y-5">
             <Reveal>
               <div className="rounded-xl border bg-panel p-7">

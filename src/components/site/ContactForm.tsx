@@ -82,7 +82,7 @@ export function ContactForm() {
         <div className="sm:col-span-2">
           <label htmlFor="file" className="flex cursor-pointer items-center gap-3 rounded-md border border-dashed px-4 py-4 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-foreground">
             <Upload className="h-4 w-4 shrink-0 text-primary-glow" />
-            <span className="truncate">{file ? file.name : "Upload sketch, drawing or reference (optional)"}</span>
+            <span className="min-w-0 truncate">{file ? file.name : "Upload sketch, drawing or reference (optional)"}</span>
           </label>
           <input id="file" name="file" type="file" className="sr-only" accept=".pdf,.png,.jpg,.jpeg,.dwg,.dxf,.step,.stp,.stl,.sldprt,.zip" onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
         </div>
