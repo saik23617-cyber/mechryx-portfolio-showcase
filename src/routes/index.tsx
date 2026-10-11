@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
-import { process, software } from "@/data/site";
+import { process, software, site } from "@/data/site";
 import { ServiceCard, ProcessStep } from "@/components/site/Cards";
 import { ProjectGrid } from "@/components/site/ProjectGrid";
 import { CTASection } from "@/components/site/CTASection";
@@ -105,7 +105,7 @@ function Hero() {
           </Reveal>
           <Reveal delay={240}>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link to="/contact" className={btn({ size: "lg" })}>Start Your Project <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></Link>
+              <a href={site.enquiryForm} target="_blank" rel="noopener noreferrer" className={btn({ size: "lg" })}>Start a Project <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a>
               <Link to="/projects" className={btn({ variant: "outline", size: "lg" })}>View Projects</Link>
             </div>
           </Reveal>

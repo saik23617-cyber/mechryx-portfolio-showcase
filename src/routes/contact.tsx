@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MessageCircle, Mail } from "lucide-react";
+import { MessageCircle, Mail, ClipboardList, ArrowUpRight } from "lucide-react";
 import { site } from "@/data/site";
 import { ContactForm } from "@/components/site/ContactForm";
 import { Container, PageHeader, Reveal, btn } from "@/components/site/ui";
@@ -23,14 +23,22 @@ function ContactPage() {
     <>
       <PageHeader eyebrow="Contact" title="Let's Build Your Idea" text="Have a sketch, concept, product idea, or CAD requirement? Send us the details and let's discuss how we can turn it into a professional mechanical design." />
       <section className="py-20">
-        <Container className="grid gap-10 lg:grid-cols-[1fr_1.5fr]">
-          <div className="space-y-5">
+        <Container className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)]">
+          <div className="min-w-0 space-y-5">
             <Reveal>
+              <div className="rounded-xl border bg-panel p-7">
+                <ClipboardList className="h-6 w-6 text-primary-glow" />
+                <p className="eyebrow mt-5">Project Enquiry</p>
+                <p className="mt-3 text-sm text-muted-foreground">Tell us about your idea, requirements and deadline — the form takes a couple of minutes.</p>
+                <a href={site.enquiryForm} target="_blank" rel="noopener noreferrer" className={`${btn()} mt-6 w-full`}>Send a Project Enquiry <ArrowUpRight className="h-4 w-4" aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a>
+              </div>
+            </Reveal>
+            <Reveal delay={40}>
               <div className="rounded-xl border bg-panel p-7">
                 <MessageCircle className="h-6 w-6 text-primary-glow" />
                 <p className="eyebrow mt-5">WhatsApp</p>
                 <p className="mt-2 font-display text-2xl">{site.phoneDisplay}</p>
-                <a href={site.whatsapp} target="_blank" rel="noreferrer" className={`${btn()} mt-6 w-full`}>Chat on WhatsApp</a>
+                <a href={site.whatsapp} target="_blank" rel="noreferrer" className={`${btn({ variant: "outline" })} mt-6 w-full`}>Chat on WhatsApp</a>
               </div>
             </Reveal>
             <Reveal delay={80}>
@@ -42,7 +50,7 @@ function ContactPage() {
               </div>
             </Reveal>
           </div>
-          <Reveal delay={120}><ContactForm /></Reveal>
+          <Reveal delay={120} className="min-w-0"><ContactForm /></Reveal>
         </Container>
       </section>
     </>
