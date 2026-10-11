@@ -7,6 +7,7 @@ export const site = {
   phoneHref: "tel:+919059582549",
   whatsapp: "https://wa.me/919059582549",
   email: "mechryxdesigns@gmail.com",
+  enquiryForm: "https://cmv3po68h000a30bukn8l94eg.zapier.app/",
   // Add your real profile URLs here. Leave empty ("") to hide the link.
   social: {
     linkedin: "",

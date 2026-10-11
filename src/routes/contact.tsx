@@ -27,10 +27,18 @@ function ContactPage() {
           <div className="space-y-5">
             <Reveal>
               <div className="rounded-xl border bg-panel p-7">
+                <ClipboardList className="h-6 w-6 text-primary-glow" />
+                <p className="eyebrow mt-5">Project Enquiry</p>
+                <p className="mt-3 text-sm text-muted-foreground">Tell us about your idea, requirements and deadline — the form takes a couple of minutes.</p>
+                <a href={site.enquiryForm} target="_blank" rel="noopener noreferrer" className={`${btn()} mt-6 w-full`}>Send a Project Enquiry <ArrowUpRight className="h-4 w-4" aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a>
+              </div>
+            </Reveal>
+            <Reveal delay={40}>
+              <div className="rounded-xl border bg-panel p-7">
                 <MessageCircle className="h-6 w-6 text-primary-glow" />
                 <p className="eyebrow mt-5">WhatsApp</p>
                 <p className="mt-2 font-display text-2xl">{site.phoneDisplay}</p>
-                <a href={site.whatsapp} target="_blank" rel="noreferrer" className={`${btn()} mt-6 w-full`}>Chat on WhatsApp</a>
+                <a href={site.whatsapp} target="_blank" rel="noreferrer" className={`${btn({ variant: "outline" })} mt-6 w-full`}>Chat on WhatsApp</a>
               </div>
             </Reveal>
             <Reveal delay={80}>
