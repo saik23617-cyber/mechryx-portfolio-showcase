@@ -80,7 +80,7 @@ export function ContactForm() {
           <Err k="description" />
         </div>
         <div className="sm:col-span-2">
-          <label htmlFor="file" className="flex cursor-pointer items-center gap-3 rounded-md border border-dashed px-4 py-4 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-foreground">
+          <label htmlFor="file" className="flex min-w-0 cursor-pointer items-center gap-3 overflow-hidden rounded-md border border-dashed px-4 py-4 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-foreground">
             <Upload className="h-4 w-4 shrink-0 text-primary-glow" />
             <span className="min-w-0 truncate">{file ? file.name : "Upload sketch, drawing or reference (optional)"}</span>
           </label>
