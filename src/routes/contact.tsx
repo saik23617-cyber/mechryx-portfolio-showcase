@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MessageCircle, Mail } from "lucide-react";
+import { MessageCircle, Mail, ClipboardList, ArrowUpRight } from "lucide-react";
 import { site } from "@/data/site";
 import { ContactForm } from "@/components/site/ContactForm";
 import { Container, PageHeader, Reveal, btn } from "@/components/site/ui";

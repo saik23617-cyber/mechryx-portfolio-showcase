@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
-import { process, software } from "@/data/site";
+import { process, software, site } from "@/data/site";
 import { ServiceCard, ProcessStep } from "@/components/site/Cards";
 import { ProjectGrid } from "@/components/site/ProjectGrid";
 import { CTASection } from "@/components/site/CTASection";
