@@ -6,6 +6,7 @@ import { services } from "@/data/services";
 import { process, software, site } from "@/data/site";
 import { ServiceCard, ProcessStep } from "@/components/site/Cards";
 import { ProjectGrid } from "@/components/site/ProjectGrid";
+import { EngineeringMotion } from "@/components/site/EngineeringMotion";
 import { CTASection } from "@/components/site/CTASection";
 import { Container, Reveal, SectionHeading, btn } from "@/components/site/ui";
 
@@ -71,6 +72,7 @@ function Home() {
         </Container>
       </section>
 
+      <EngineeringMotion />
       <CTASection />
     </>
   );

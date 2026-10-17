@@ -13,6 +13,7 @@ import valve from "@/assets/projects/valve-flow.jpeg.asset.json";
 import crane from "@/assets/projects/crane-hook.jpeg.asset.json";
 import engineVideo from "@/assets/projects/engine-motion.mp4.asset.json";
 import enginePoster from "@/assets/projects/engine-assembly.png.asset.json";
+import autocadComponent from "@/assets/projects/autocad-component.png.asset.json";
 
 export type Project = {
   slug: string;
@@ -99,5 +100,16 @@ export const projects: Project[] = [
     imageAlt: "Uploaded SolidWorks screenshot showing a magenta component with a flat base, a large circular opening and two raised folded sections with circular holes.",
     preserveImage: true,
     tools: [],
+  },
+  {
+    slug: "autocad-mechanical-component",
+    title: "AutoCAD Mechanical Component",
+    category: "AutoCAD / Mechanical CAD",
+    description: "3D mechanical component modeled in AutoCAD, showcasing its mounting base, support structure, and precision openings.",
+    caption: "3D mechanical component modeled in AutoCAD, showcasing its mounting base, support structure, and precision openings.",
+    image: autocadComponent.url,
+    imageAlt: "AutoCAD screenshot of a grey mechanical component with a two-hole mounting base, upright support, circular opening and upper elongated opening.",
+    preserveImage: true,
+    tools: ["AutoCAD"],
   },
 ];

@@ -13,3 +13,4 @@ Portfolio media mappings live in the shared project data and are rendered by the
 Uploaded video frames may be extracted only for player posters; a missing requested screenshot remains a labeled card placeholder.
 Shared branding uses the original uploaded logo asset pointer; only the favicon is a resized, proportion-preserving public raster.
 Decorative depth and background motion use CSS and fine-pointer card transforms, with a global reduced-motion override; do not add a 3D library for these effects.
+Engineering clips live in shared data and use one controlled-video section on Home and Projects, with poster-first loading and WebM/MP4 alternatives to avoid duplicate mappings and improve browser playback.
