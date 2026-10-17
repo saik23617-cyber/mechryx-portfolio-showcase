@@ -13,3 +13,8 @@
 # Enquiry form links
 - [x] Point hero "Start a Project" and a contact "Send a Project Enquiry" button at the Zapier enquiry form in a new tab.
 - [x] Verify both buttons open the form on desktop and mobile, and fix mobile sideways scroll on the contact page.
+
+# AutoCAD and Engineering in Motion
+- [ ] Add the unchanged AutoCAD screenshot with the supplied title and caption.
+- [ ] Review both uploaded clips and add accurately labeled controlled videos.
+- [ ] Verify the new project and videos on desktop and mobile before publishing.
