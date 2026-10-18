@@ -20,5 +20,5 @@
 - [x] Verify the new project and videos on desktop and mobile before publishing.
 
 # Vercel media portability
-- [ ] Restore actual portfolio media files into the project and replace host-specific media references.
-- [ ] Verify exact filenames, Git inclusion eligibility, and every image/video on the preview.
+- [x] Restore actual portfolio media files into the project and replace host-specific media references.
+- [x] Verify exact filenames, Git inclusion eligibility, and every image/video on the preview.
