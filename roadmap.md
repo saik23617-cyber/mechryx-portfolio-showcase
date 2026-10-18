@@ -18,3 +18,7 @@
 - [x] Add the unchanged AutoCAD screenshot with the supplied title and caption.
 - [x] Review both uploaded clips and add accurately labeled controlled videos.
 - [x] Verify the new project and videos on desktop and mobile before publishing.
+
+# Vercel media portability
+- [ ] Restore actual portfolio media files into the project and replace host-specific media references.
+- [ ] Verify exact filenames, Git inclusion eligibility, and every image/video on the preview.
